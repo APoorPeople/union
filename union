@@ -1,0 +1,31 @@
+#include<stdio.h>
+struct 
+{
+	int num;
+	char name[10];
+	char job;
+	union
+	{
+		int clas;
+		char posi [10];
+	}cate;
+}p[2];
+int main()
+{
+	int i ;
+	for(i=0;i<2;i++)
+	{
+		scanf("%d%c%s",&p[i].job,&p[i].name);
+		if(p[i].job=='s')
+			scanf("%d",&p[i].cate.clas);
+		else if(p[i].job=='t')
+			scanf("%s",p[i].cate.posi);
+		else printf("Input error!");
+	}
+	printf("\n");
+	for(i=0;i<2;i++)
+		if(p[i].job=='s')
+			printf("%d%s%c%d\n",p[i].num,p[i].name,p[i].job,p[i].cate.clas);
+		else
+			printf("%d%s%c%d\n",p[i].num,p[i].name,p[i].job,p[i].cate.clas);
+}
